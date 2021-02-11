@@ -10,7 +10,7 @@
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		type="javax.sql.DataSource"
 		url="jdbc:sqlserver://127.0.0.1:1433;databasename=Encheres"
-		username="user1"
+		username="user"
 		password="Pa$$w0rd"
 		maxActive="5000"
 		maxIdle="10000"
