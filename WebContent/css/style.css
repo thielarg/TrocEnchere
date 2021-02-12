@@ -1,0 +1,228 @@
+/* Eléments principaux de la page */
+body
+{
+	background-image: url("../images/background.png");
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.bloc_page
+{
+  /* couleur de l'arriere-plan*/
+background-color : white;
+  /* arrondir les coins*/
+border-radius: 10px;
+  /* largeur*/
+width: 80%;
+  /* marge*/
+margin: auto;
+}
+
+
+/********** header **********/
+header
+{
+  /* image repetée uniquement sur la premiere ligne horizontalement 
+  positionnement en bas */
+background: url('../images/separateur.png') repeat-x bottom;
+}
+
+.logo
+{
+  /* changement de type d'element - élément en ligne remplacé*/
+display: inline-block;
+  /* marge haut / marge ge gauche et de droite / marge du bas*/
+margin: 5px 5px 0px;
+height: 80px;
+width: 250px;
+background: url('../images/logoENI.png') no-repeat;
+alt: Logo de ENI Ecole Informatique; 
+position: relative;
+}
+
+.align_droit{
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+
+
+
+/* entete.jsp */
+/*
+.navbar-brand
+{
+	padding: 0px;
+	margin-top: 10px;
+	margin-left: 10px;
+	float : left;
+}
+
+.img-logo {
+   margin: 0 auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.float-right{
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+*/
+/*seConnecter.jsp*/
+/*
+.formConnect
+{
+	display: inline-block;
+	margin-top: 15%
+}
+
+.containerLogin
+{
+	background-color: #ffffff;
+	opacity: 0.8;
+	margin-top: 150px;
+	margin-left: 370px;
+	margin-right: 370px;
+	padding-bottom: 50px;
+	border-radius: 20px;
+}
+.id, .pwd
+{
+	width : 300px;
+}
+.bodyConnect
+{
+	text-align : center;
+}
+
+
+.container1
+{
+	display: flex;
+}
+.rememberMe
+{
+	margin-left: 20px;
+}
+#login
+{
+	padding-right: 35px;
+}
+
+#btnCreerCompte
+{
+	width: 200px;
+}
+*/
+/* creationDeProfil.jsp */
+/*
+.btnProfil
+{
+	margin-right: 20px;
+	margin-top: 50px;
+}
+
+#createprofil
+{
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+
+
+#monProfil
+{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+*/
+/* acceuil.jsp */
+/*
+#btnSearch
+{
+	margin-top : 30px;
+	width: 250px;
+	margin-left: 50px;
+}
+
+#h2Enchere
+{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#formEnchere
+{
+	margin-left: 50px;
+	justify-content: center;
+}
+
+#listEnchere
+{
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.link {
+    margin: 0;
+    border: 0;
+    background: none;
+    overflow: visible;
+    color: blue;
+    cursor: pointer;
+}
+
+.container
+{
+	display: flex;
+	flex-direction: horizontal;
+	flex-wrap: wrap;
+}
+div.card {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+*/
+/* monProfil.jsp + profil.jsp */
+/*
+#divProfil
+{
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 500px;
+}
+.btnUser
+{
+	margin:2px;
+}
+#formSearch
+{
+	margin-right: 165px;
+	margin-left: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 20px;
+	padding-left: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.centrer
+{
+	margin-left: 100%
+}
+
+.containerGest
+{
+	
+	float: right;
+}
+.containerTab
+{
+	margin-left: 3%;
+	margin-right: 3%;
+	
+}
+*/
