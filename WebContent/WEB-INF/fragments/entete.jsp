@@ -16,16 +16,23 @@
 			<div class="bloc_page">
 				<header>
 				<div class="row">
-					<div class="col-sm-9">
-						<a href="accueil.html">
-							<div class="logo"></div>
-						</a>
-					</div>
 <c:if test="${sessionScope.utilisateurConnecte == null }">
+					<div class="col-sm-9">
+						<a href="accueil.html"><div class="logo"></div></a>
+					</div>
 					<div class="col-sm-3 align_haut">
-						<a href="./CreerCompte">S&acute;inscrire</a> - <a href="./AuthentificationServlet">Se connecter</a>
+						<a href="./CreerCompte">S&acute;inscrire</a> - <a href="authentification.html">Se connecter</a>
 					</div>
 
 </c:if>
+<c:if test="${sessionScope.utilisateurConnecte != null }">
+					<div class="col-sm-7">
+						<a href="accueil.html"><div class="logo"></div></a>
+					</div>
+					<div class="col-sm-5 align_haut">
+						<a href="#">Ench&egrave;res</a> - <a href="#">Vendre un article</a> - <a href="#">Mon profil</a> - <a href="./DeconnexionServlet">D&eacute;connexion</a>
+					</div>
+</c:if>		</div>
+
 				</div>
 				</header>

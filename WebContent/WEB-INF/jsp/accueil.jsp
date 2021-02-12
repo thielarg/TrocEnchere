@@ -108,18 +108,5 @@
 		</c:if>
 	</c:forEach>
 </c:if>
-		<div class="row">
-			<div class="col-sm-12 petit centrer">
-				<hr>
-				Copyright &copy; ENI Ecole Informatique - <span class="glyphicon glyphicon-hand-right"></span>&nbsp;infos l&eacute;gales
-			</div>
-		</div>
-	</div>
 
-
-
-</div> <!-- fin container -->
-</div> <!-- fin du bloc page -->
-
-</body>
-</html>
+<jsp:include page="../fragments/bas.jsp"/>
