@@ -6,6 +6,7 @@ body
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
+
 .bloc_page
 {
   /* couleur de l'arriere-plan*/
@@ -18,8 +19,13 @@ width: 80%;
 margin: auto;
 }
 
+.row
+{
+	margin-right: 0px;
+	margin-left: 0px;
+}
 
-/********** header **********/
+/********** entete **********/
 header
 {
   /* image repetée uniquement sur la premiere ligne horizontalement 
@@ -38,15 +44,72 @@ width: 250px;
 background: url('../images/logoENI.png') no-repeat;
 alt: Logo de ENI Ecole Informatique; 
 position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.align_droit{
+.align_haut
+{
 	padding: 0px;
-	margin-top: 10px;
-	margin-right: 10px;
-	float: right;
+	margin-top: 40px;
 }
 
+/********** accueil ************/
+.centrer 
+{
+	text-align: center;
+	width: 100%;
+}
+
+p
+{
+	margin-left: 10px;
+}
+
+.glyphicon
+{
+	top: 0px;
+}
+/*----- filtre connecté -----*/
+.retrait
+{
+	padding-left: 10px;
+}
+
+.gris
+{
+	color: #c0c0c0;
+}
+
+/*---- bouton recherche et message anomalie-----*/
+.btn-lg 
+{
+	padding:25px 42px;
+}
+
+.margeExt 
+{
+	margin-top: 10px;
+}
+
+/*----- liste des articles ----*/
+.cadre 
+{
+    border : 1px solid black;
+}
+
+.img-rounded 
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 120%;
+}
+
+
+/******** pied de page *******/
+.petit 
+{
+	font-size: 6px;
+}
 
 
 /* entete.jsp */

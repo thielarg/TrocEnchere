@@ -13,7 +13,8 @@ import fr.eni.encheres.dao.UtilisateurDAO;
 import fr.eni.encheres.erreurs.DALException;
 
 /**
- * 
+ * <font color="red">Classe</font> implementant les methodes le l'interface UtilisateurDAO<br> pour gerer le cycle de vie 
+ * du modele metier Utilisateur<br>
  * @author Thierry
  *
  */
@@ -29,7 +30,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO
 	 * @param identifiant - pseudo ou email
 	 * @param mot_de_passe
 	 * @return un objet de type Utilisateur
-	 * @throws DALException - une exception de type DALException
+	 * @throws DALException  propage une exception de type DALException
+	 * @finally libere les connexions ouvertes
 	 */
 	@Override
 	public Utilisateur connexionUtilisateur(String identifiant, String mot_de_passe) throws DALException
@@ -54,6 +56,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO
 			utilisateurConnecte = recupUtilisateur(rs);
 		}catch (SQLException e){
 			new DALException("probleme methode connexionUtilisateur dans l'execution de la requete", e);
+		}finally{
+			ConnexionProvider.seDeconnecter(pstmt, cnx);
 		}
 		return utilisateurConnecte;
 	}

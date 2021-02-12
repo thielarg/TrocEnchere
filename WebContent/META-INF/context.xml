@@ -12,8 +12,8 @@
 		url="jdbc:sqlserver://127.0.0.1:1433;databasename=Encheres"
 		username="user"
 		password="Pa$$w0rd"
-		maxActive="5000"
-		maxIdle="10000"
+		maxTotal="10"
+		maxIdle="5"
 		maxWaitMillis="3000"
 	/>
 	
