@@ -1,5 +1,6 @@
 package fr.eni.encheres.dao;
 
+import fr.eni.encheres.dao.jdbc.impl.ArticleDAOJdbcImpl;
 import fr.eni.encheres.dao.jdbc.impl.CategorieDAOJdbcImpl;
 import fr.eni.encheres.dao.jdbc.impl.UtilisateurDAOJdbcImpl;
 
@@ -18,7 +19,7 @@ import fr.eni.encheres.dao.jdbc.impl.UtilisateurDAOJdbcImpl;
 public class DAOFactory {
 
 	/**
-	 * <font color=green">Methode static</font> permettant d'obtenir une instance d'UtilisateurDAOJdbcImpl tupée UtilisateurDAO
+	 * <font color=green">Methode static</font> permettant d'obtenir une instance d'UtilisateurDAOJdbcImpl typée UtilisateurDAO
 	 * @return une instance de type UtilisateurDAO
 	 */
 	public static UtilisateurDAO getUtilisateurDAO() {
@@ -26,11 +27,18 @@ public class DAOFactory {
 	}
 	
 	/**
-	 * <font color=green">Methode static</font> permettant d'obtenir une instance de CategorieDAOJdbcImpl tupée CategorieDAO
+	 * <font color=green">Methode static</font> permettant d'obtenir une instance de CategorieDAOJdbcImpl typée CategorieDAO
 	 * @return une instance de type CategorieDAO
 	 */
 	public static CategorieDAO getCategorieDAO(){
 		return new CategorieDAOJdbcImpl();
 	}
 
+	/**
+	 * <font color=green">Methode static</font> permettant d'obtenir une instance de ArticleDAOJdbcImpl typée ArticleDAO
+	 * @return une instance de type ArticleDAO
+	 */
+	public static ArticleDAO getArticleDAO(){
+		return new ArticleDAOJdbcImpl();
+	}
 }
