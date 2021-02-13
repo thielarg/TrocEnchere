@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<jsp:include page="../fragments/entete.jsp"/>
+<jsp:include page="../fragments/fragmentHaut.jsp"/>
 
 
 <br>
@@ -109,4 +109,4 @@
 	</c:forEach>
 </c:if>
 
-<jsp:include page="../fragments/bas.jsp"/>
+<jsp:include page="../fragments/fragmentBas.jsp"/>
