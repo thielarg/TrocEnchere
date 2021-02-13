@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<jsp:include page="../fragments/entete.jsp"></jsp:include>
+<jsp:include page="../fragments/fragmentHaut.jsp"></jsp:include>
 <body>
 		<div class="row">
 			<div class="col-sm-11 bg-primary">ENI-Encheres</div>
@@ -25,4 +25,4 @@
 		<br>
 	</div>
 
-<jsp:include page="../fragments/bas.jsp"></jsp:include>
+<jsp:include page="../fragments/fragmentBas.jsp"></jsp:include>
