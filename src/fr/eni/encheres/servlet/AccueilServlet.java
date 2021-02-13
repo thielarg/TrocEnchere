@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.encheres.beans.Article;
 import fr.eni.encheres.beans.Categorie;
 import fr.eni.encheres.dao.DAOFactory;
 import fr.eni.encheres.erreurs.DALException;
@@ -40,7 +41,7 @@ public class AccueilServlet extends HttpServlet {
 		//recupération des catégories
 		try {
 			categories = DAOFactory.getCategorieDAO().lister();
-			request.getSession().setAttribute("first", true);						//à monter en session
+			request.getSession().setAttribute("first", true);						
 			request.setAttribute("message", "");
 			//passage de la liste des catégories en session
 			request.getSession().setAttribute("categories", categories);
@@ -48,8 +49,9 @@ public class AccueilServlet extends HttpServlet {
 			//delegation à la page d'accueil en mode deconnecté
 			request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
 		} catch (DALException e) {
-			// TODO deleger à la page d'erreur
-			e.printStackTrace();
+			request.setAttribute("erreur", e);
+			//deleger à la page d'erreur
+			request.getRequestDispatcher("/WEB-INF/erreur/erreur.jsp").forward(request, response);
 		}
  
 	}
@@ -58,7 +60,62 @@ public class AccueilServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO ?
+		String likeArticle = "";
+		int idCategorie = 1;
+		ArrayList<Categorie> categories = new ArrayList<>();
+		ArrayList<Article> articles = new ArrayList<>();
+		String message="";
+		int nbre = 0;
+
+//Utilisateur u = (Utilisateur) request.getSession().getAttribute("utilisateurConnecte");
+//System.out.println(u.getPseudo());
+//Boolean first = (boolean) request.getSession().getAttribute("first");
+//System.out.println(first);
+
+
+		//recuperation des donnees saisies pour le filtre
+		likeArticle = request.getParameter("likeArticle");
+		idCategorie = Integer.parseInt(request.getParameter("idCategorie"));
+		try {
+			if ((request.getSession().getAttribute("utilisateurConnecte") == null)|| (request.getSession().getAttribute("utilisateurConnecte") != null && (boolean) request.getSession().getAttribute("first"))) {
+				//recupération des articles selon le filtre
+				articles = DAOFactory.getArticleDAO().rechercher(likeArticle, idCategorie);
+			} else {
+				String type = request.getParameter("type");
+				request.setAttribute("type", type);
+				if(type.equals("encheres")){
+					String[] encheres = request.getParameterValues("encheres");
+					request.setAttribute("encheres", encheres);
+					request.setAttribute("ventes", null);
+				} else {
+					String[] ventes = request.getParameterValues("ventes");
+					request.setAttribute("encheres", null);
+					request.setAttribute("ventes", ventes);
+				}
+
+//TODO : faire les requetes DAO et implemente la methode surchargée
+				//recupération des articles selon le filtre
+				articles = DAOFactory.getArticleDAO().rechercher(likeArticle, idCategorie);
+			}
+			if(articles.isEmpty()){
+				message = "La liste est vide";
+				request.getSession().setAttribute("first", true);		//à monter en session
+			} else {
+				nbre =articles.size();
+				request.getSession().setAttribute("first", false);		//à monter en session
+			}
+			request.setAttribute("message", message);
+			request.setAttribute("articles", articles);
+			request.setAttribute("nbre", nbre);
+			request.setAttribute("idCategorie", idCategorie);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+
+		} catch (DALException e) {
+System.out.println(e.getMessage());
+			request.setAttribute("erreur", e);
+			
+			this.getServletContext().getRequestDispatcher("/WEB-INF/erreur.jsp").forward(request, response);
+		}
 	}
 
 }
