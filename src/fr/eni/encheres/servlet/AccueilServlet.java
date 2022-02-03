@@ -38,19 +38,21 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO traitement concernant l'affichage de la page d'accueil en mode deconnecté
 		List<Categorie> categories = new ArrayList<>();
-		//recupération des catégories
+		//recupération des catégories pour charger la liste des categories dans la JSP
 		try {
 			categories = DAOFactory.getCategorieDAO().lister();
-			request.getSession().setAttribute("first", true);						
+			request.getSession().setAttribute("first", true);
 			request.setAttribute("message", "");
-			//passage de la liste des catégories en session
+			//passage dans le contexte de session de la liste des catégories
 			request.getSession().setAttribute("categories", categories);
-			request.setAttribute("idCategorie", 1);
+			//passage dans la contexte de session de l'idCategorie pour afficher la premiere categorie dans la liste
+			request.setAttribute("idCategorie", 1); 			
 			//delegation à la page d'accueil en mode deconnecté
 			request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
 		} catch (DALException e) {
+			//chargement du message d'erreur dans le contexte de requete
 			request.setAttribute("erreur", e);
-			//deleger à la page d'erreur
+			//delegation à la page d'erreur
 			request.getRequestDispatcher("/WEB-INF/erreur/erreur.jsp").forward(request, response);
 		}
  
