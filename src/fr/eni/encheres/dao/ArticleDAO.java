@@ -1,6 +1,7 @@
 package fr.eni.encheres.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.encheres.beans.Article;
 import fr.eni.encheres.erreurs.DALException;
@@ -21,7 +22,7 @@ public interface ArticleDAO {
 	 * @return une liste typée Article
 	 * @throws DALException  propage une exception de type DALException
 	 */
-	ArrayList<Article> rechercher(String likeArticle, int idCategorie) throws DALException;
+	List<Article> rechercher(String likeArticle, int idCategorie) throws DALException;
 	
 	/**
 	 * <font color="green">Methode abstraite</font> pour lister tous les articles en mode connecté

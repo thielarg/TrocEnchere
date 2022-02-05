@@ -1,6 +1,7 @@
 package fr.eni.encheres.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -88,6 +89,25 @@ public abstract class ConnexionProvider {
 		seDeconnecter(cnx);
 	}
 
+
+	/**
+	 * <font color="green">Methode</font> surchargée permettant de liberer la connexion et 
+	 * de la remettre dans le pool de connexion
+	 * @param cnx - une instance de type Connection
+	 * @param stmt - une instance de type Statement
+	 * @throws DALException - exception de type DALException
+	 */
+	public static void seDeconnecter(PreparedStatement pstmt, Connection cnx) throws DALException {
+		try {
+			if (pstmt!= null) {
+				pstmt.close();
+			}
+		} catch (SQLException e) {
+			throw new DALException("Impossible de fermer le preparedStatement", e);
+		}
+		
+		seDeconnecter(cnx);
+	}
 
 }
 

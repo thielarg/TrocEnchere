@@ -38,22 +38,23 @@ public class AccueilServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO traitement concernant l'affichage de la page d'accueil en mode deconnecté
 		List<Categorie> categories = new ArrayList<>();
-		//recupération des catégories pour charger la liste des categories dans la JSP
 		try {
+			//recuperation des categories pour charger la liste des categories dans la JSP
 			categories = DAOFactory.getCategorieDAO().lister();
+
 			request.getSession().setAttribute("first", true);
 			request.setAttribute("message", "");
-			//passage dans le contexte de session de la liste des catégories
+			//passage dans le contexte de session de la liste des categories
 			request.getSession().setAttribute("categories", categories);
 			//passage dans la contexte de session de l'idCategorie pour afficher la premiere categorie dans la liste
 			request.setAttribute("idCategorie", 1); 			
-			//delegation à la page d'accueil en mode deconnecté
+			//delegation a la page d'accueil en mode deconnecte
 			request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request, response);
 		} catch (DALException e) {
 			//chargement du message d'erreur dans le contexte de requete
 			request.setAttribute("erreur", e);
-			//delegation à la page d'erreur
-			request.getRequestDispatcher("/WEB-INF/erreur/erreur.jsp").forward(request, response);
+			//delegation a la page d'erreur
+			request.getRequestDispatcher("/erreur.html").forward(request, response);
 		}
  
 	}
@@ -65,7 +66,7 @@ public class AccueilServlet extends HttpServlet {
 		String likeArticle = "";
 		int idCategorie = 1;
 		ArrayList<Categorie> categories = new ArrayList<>();
-		ArrayList<Article> articles = new ArrayList<>();
+		List<Article> articles = new ArrayList<>();
 		String message="";
 		int nbre = 0;
 
